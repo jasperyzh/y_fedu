@@ -1,6 +1,7 @@
 ---
 import DinosaurService from '../../lib/dinosaur-service';
 //import '../../styles/index.css';
+export const prerender = true;
 
 export async function getStaticPaths() {
     const dinosaursWithSlugs = DinosaurService.getDinosaursWithSlugs();
