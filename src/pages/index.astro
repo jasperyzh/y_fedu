@@ -1,5 +1,9 @@
 ---
+import DinosaurService from '../lib/dinosaur-service';
+// import '../../styles/index.css';
 
+// Get all dinosaurs with slugs for linking
+const dinosaursWithSlugs = DinosaurService.getDinosaursWithSlugs();
 ---
 
 <html lang="en">
@@ -8,9 +12,18 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>Dinosaur Directory</title>
 	</head>
 	<body>
-		<h1>Astro</h1>
+		<h1>🦕 Dinosaur Directory</h1>
+		<p>Click on any dinosaur name to learn more about it!</p>
+		
+		<div class="dinosaur-list">
+			{dinosaursWithSlugs.map((dinosaur) => (
+				<a href={`/dinosaur/${dinosaur.slug}`} class="dinosaur-link">
+					{dinosaur.name}
+				</a>
+			))}
+		</div>
 	</body>
 </html>
